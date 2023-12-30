@@ -9,5 +9,7 @@ namespace TravelApp.Infrastructure.Data.Entities
         [Required]
         [MaxLength(50)]
         public string Name { get; set; }
+
+        public ICollection<Holiday> Holidays { get; set; } = new List<Holiday>();
     }
 }
