@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TravelApp.Infrastructure.Data;
 
@@ -11,9 +12,10 @@ using TravelApp.Infrastructure.Data;
 namespace TravelApp.Infrastructure.Migrations
 {
     [DbContext(typeof(TravelAppDbContext))]
-    partial class TravelAppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231230164849_seedEntities")]
+    partial class seedEntities
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -188,6 +190,33 @@ namespace TravelApp.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Amenities");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Swimming Pool"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Gym"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Spa"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Name = "Wi-Fi"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Name = "Restaurant"
+                        });
                 });
 
             modelBuilder.Entity("TravelApp.Infrastructure.Data.Entities.ApplicationUser", b =>
@@ -254,6 +283,68 @@ namespace TravelApp.Infrastructure.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("0b1ca85c-6d66-4a76-b583-7723302e8542"),
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "0e05a81a-2753-4e94-862c-acfbd6a06ec9",
+                            Email = "user1@example.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            PhoneNumberConfirmed = false,
+                            TwoFactorEnabled = false,
+                            UserName = "user1"
+                        },
+                        new
+                        {
+                            Id = new Guid("c5766467-afbf-4e85-930c-871a2169959c"),
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "e945f952-8de4-418f-821f-f40a76cb39bb",
+                            Email = "user2@example.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            PhoneNumberConfirmed = false,
+                            TwoFactorEnabled = false,
+                            UserName = "user2"
+                        },
+                        new
+                        {
+                            Id = new Guid("c6649427-b81a-4dd3-8793-d1a7d3f1424d"),
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "3cc75993-0944-472b-8177-4faedb5c4bba",
+                            Email = "user3@example.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            PhoneNumberConfirmed = false,
+                            TwoFactorEnabled = false,
+                            UserName = "user3"
+                        },
+                        new
+                        {
+                            Id = new Guid("a04c6d0d-9e0f-4fa2-a7f6-4d61cf154c37"),
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "e6ee3d86-649a-4044-8ca1-dbae46fdeea2",
+                            Email = "user4@example.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            PhoneNumberConfirmed = false,
+                            TwoFactorEnabled = false,
+                            UserName = "user4"
+                        },
+                        new
+                        {
+                            Id = new Guid("9f17e229-a27e-4d05-beee-a2882cd42e18"),
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "e469b147-31f5-467c-b446-32ceb060d813",
+                            Email = "user5@example.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            PhoneNumberConfirmed = false,
+                            TwoFactorEnabled = false,
+                            UserName = "user5"
+                        });
                 });
 
             modelBuilder.Entity("TravelApp.Infrastructure.Data.Entities.Booking", b =>
@@ -280,43 +371,6 @@ namespace TravelApp.Infrastructure.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Bookings");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            DateBooked = new DateTime(2023, 12, 30, 17, 3, 44, 712, DateTimeKind.Local).AddTicks(9502),
-                            HolidayId = 1,
-                            UserId = new Guid("0b1ca85c-6d66-4a76-b583-7723302e8542")
-                        },
-                        new
-                        {
-                            Id = 2,
-                            DateBooked = new DateTime(2023, 12, 30, 17, 3, 44, 712, DateTimeKind.Local).AddTicks(9534),
-                            HolidayId = 2,
-                            UserId = new Guid("c5766467-afbf-4e85-930c-871a2169959c")
-                        },
-                        new
-                        {
-                            Id = 3,
-                            DateBooked = new DateTime(2023, 12, 30, 17, 3, 44, 712, DateTimeKind.Local).AddTicks(9537),
-                            HolidayId = 3,
-                            UserId = new Guid("c6649427-b81a-4dd3-8793-d1a7d3f1424d")
-                        },
-                        new
-                        {
-                            Id = 4,
-                            DateBooked = new DateTime(2023, 12, 30, 17, 3, 44, 712, DateTimeKind.Local).AddTicks(9539),
-                            HolidayId = 4,
-                            UserId = new Guid("a04c6d0d-9e0f-4fa2-a7f6-4d61cf154c37")
-                        },
-                        new
-                        {
-                            Id = 5,
-                            DateBooked = new DateTime(2023, 12, 30, 17, 3, 44, 712, DateTimeKind.Local).AddTicks(9541),
-                            HolidayId = 5,
-                            UserId = new Guid("9f17e229-a27e-4d05-beee-a2882cd42e18")
-                        });
                 });
 
             modelBuilder.Entity("TravelApp.Infrastructure.Data.Entities.Category", b =>
@@ -335,6 +389,33 @@ namespace TravelApp.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Beach Vacation"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Mountain Retreat"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "City Tour"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Name = "Cruise"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Name = "Safari Adventure"
+                        });
                 });
 
             modelBuilder.Entity("TravelApp.Infrastructure.Data.Entities.Holiday", b =>
@@ -364,6 +445,48 @@ namespace TravelApp.Infrastructure.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Holidays");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CategoryId = 1,
+                            Description = "Enjoy the sun and sand",
+                            Destination = "Maldives Paradise",
+                            ImageUrl = "https://hips.hearstapps.com/hmg-prod/images/beach-quotes-1559667853.jpg"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CategoryId = 2,
+                            Description = "Escape to the mountains",
+                            Destination = "Rhodopes Mountain",
+                            ImageUrl = "https://assets.traveltriangle.com/blog/wp-content/uploads/2018/09/mt.-cook-cover.jpg?tr=w-400"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CategoryId = 3,
+                            Description = "Discover the urban charm",
+                            Destination = "Rome",
+                            ImageUrl = "https://hips.hearstapps.com/hmg-prod/images/most-expensive-cities-in-the-world-new-york-city-new-york-1658760364.jpg"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CategoryId = 4,
+                            Description = "Set sail on the open sea",
+                            Destination = "European Cruise Adventure",
+                            ImageUrl = "https://static.toiimg.com/thumb/80582831/Cruise.jpg?width=1200&height=900"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CategoryId = 5,
+                            Description = "Explore the wild side",
+                            Destination = "Kenya Safari Expedition",
+                            ImageUrl = "https://media.cntraveller.com/photos/611becdb24f18e2bd3cbe71d/16:9/w_2992,h_1683,c_limit/open-vehicle-with-tracker-bushman.jpg"
+                        });
                 });
 
             modelBuilder.Entity("TravelApp.Infrastructure.Data.Entities.Review", b =>
