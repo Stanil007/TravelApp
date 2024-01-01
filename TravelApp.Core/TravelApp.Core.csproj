@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\TravelApp.Infrastructure\TravelApp.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

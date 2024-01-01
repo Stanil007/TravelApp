@@ -3,17 +3,20 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34221.43
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelApp.Web", "TravelApp.Web\TravelApp.Web.csproj", "{339AE4B9-196A-4C8E-BE73-CB87AAD1CE67}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TravelApp.Web", "TravelApp.Web\TravelApp.Web.csproj", "{339AE4B9-196A-4C8E-BE73-CB87AAD1CE67}"
 	ProjectSection(ProjectDependencies) = postProject
 		{6185BC10-763B-4D72-B79F-9720D4592FFA} = {6185BC10-763B-4D72-B79F-9720D4592FFA}
 		{D9EAD27A-06BF-45EB-83FF-41B9FA72E940} = {D9EAD27A-06BF-45EB-83FF-41B9FA72E940}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelApp.Core", "TravelApp.Core\TravelApp.Core.csproj", "{6185BC10-763B-4D72-B79F-9720D4592FFA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TravelApp.Core", "TravelApp.Core\TravelApp.Core.csproj", "{6185BC10-763B-4D72-B79F-9720D4592FFA}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D9EAD27A-06BF-45EB-83FF-41B9FA72E940} = {D9EAD27A-06BF-45EB-83FF-41B9FA72E940}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelApp.Infrastructure", "TravelApp.Infrastructure\TravelApp.Infrastructure.csproj", "{D9EAD27A-06BF-45EB-83FF-41B9FA72E940}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TravelApp.Infrastructure", "TravelApp.Infrastructure\TravelApp.Infrastructure.csproj", "{D9EAD27A-06BF-45EB-83FF-41B9FA72E940}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelApp.Tests", "TravelApp.Tests\TravelApp.Tests.csproj", "{59E95524-67F6-4459-B031-C1541D87AB46}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TravelApp.Tests", "TravelApp.Tests\TravelApp.Tests.csproj", "{59E95524-67F6-4459-B031-C1541D87AB46}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
