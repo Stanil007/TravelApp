@@ -12,7 +12,7 @@ using TravelApp.Infrastructure.Data;
 namespace TravelApp.Infrastructure.Migrations
 {
     [DbContext(typeof(TravelAppDbContext))]
-    [Migration("20231230170345_addBooking")]
+    [Migration("20240101174343_addBooking")]
     partial class addBooking
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -287,35 +287,35 @@ namespace TravelApp.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            DateBooked = new DateTime(2023, 12, 30, 17, 3, 44, 712, DateTimeKind.Local).AddTicks(9502),
+                            DateBooked = new DateTime(2024, 1, 1, 17, 43, 43, 272, DateTimeKind.Local).AddTicks(3768),
                             HolidayId = 1,
                             UserId = new Guid("0b1ca85c-6d66-4a76-b583-7723302e8542")
                         },
                         new
                         {
                             Id = 2,
-                            DateBooked = new DateTime(2023, 12, 30, 17, 3, 44, 712, DateTimeKind.Local).AddTicks(9534),
+                            DateBooked = new DateTime(2024, 1, 1, 17, 43, 43, 272, DateTimeKind.Local).AddTicks(3837),
                             HolidayId = 2,
                             UserId = new Guid("c5766467-afbf-4e85-930c-871a2169959c")
                         },
                         new
                         {
                             Id = 3,
-                            DateBooked = new DateTime(2023, 12, 30, 17, 3, 44, 712, DateTimeKind.Local).AddTicks(9537),
+                            DateBooked = new DateTime(2024, 1, 1, 17, 43, 43, 272, DateTimeKind.Local).AddTicks(3842),
                             HolidayId = 3,
                             UserId = new Guid("c6649427-b81a-4dd3-8793-d1a7d3f1424d")
                         },
                         new
                         {
                             Id = 4,
-                            DateBooked = new DateTime(2023, 12, 30, 17, 3, 44, 712, DateTimeKind.Local).AddTicks(9539),
+                            DateBooked = new DateTime(2024, 1, 1, 17, 43, 43, 272, DateTimeKind.Local).AddTicks(3846),
                             HolidayId = 4,
                             UserId = new Guid("a04c6d0d-9e0f-4fa2-a7f6-4d61cf154c37")
                         },
                         new
                         {
                             Id = 5,
-                            DateBooked = new DateTime(2023, 12, 30, 17, 3, 44, 712, DateTimeKind.Local).AddTicks(9541),
+                            DateBooked = new DateTime(2024, 1, 1, 17, 43, 43, 272, DateTimeKind.Local).AddTicks(3948),
                             HolidayId = 5,
                             UserId = new Guid("9f17e229-a27e-4d05-beee-a2882cd42e18")
                         });
