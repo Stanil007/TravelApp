@@ -60,24 +60,15 @@ namespace TravelApp.Infrastructure.Data
                 .WithMany(a => a.Holidays)
                 .UsingEntity(j => j.ToTable("HolidayAmenities"));
 
-            // Seed Bookings
-            builder.Entity<Booking>().HasData(
-                new Booking { Id = 1, UserId = Guid.Parse("0B1CA85C-6D66-4A76-B583-7723302E8542"), HolidayId = 1, DateBooked = DateTime.Now },
-                new Booking { Id = 2, UserId = Guid.Parse("C5766467-AFBF-4E85-930C-871A2169959C"), HolidayId = 2, DateBooked = DateTime.Now },
-                new Booking { Id = 3, UserId = Guid.Parse("C6649427-B81A-4DD3-8793-D1A7D3F1424D"), HolidayId = 3, DateBooked = DateTime.Now },
-                new Booking { Id = 4, UserId = Guid.Parse("A04C6D0D-9E0F-4FA2-A7F6-4D61CF154C37"), HolidayId = 4, DateBooked = DateTime.Now },
-                new Booking { Id = 5, UserId = Guid.Parse("9F17E229-A27E-4D05-BEEE-A2882CD42E18"), HolidayId = 5, DateBooked = DateTime.Now }
+
+            // Seed Reviews
+            builder.Entity<Review>().HasData(
+                new Review { Id = 1, UserId = Guid.Parse("0B1CA85C-6D66-4A76-B583-7723302E8542"), HolidayId = 1, Comment = "Great experience!" },
+                new Review { Id = 2, UserId = Guid.Parse("C5766467-AFBF-4E85-930C-871A2169959C"), HolidayId = 2, Comment = "Amazing views!" },
+                new Review { Id = 3, UserId = Guid.Parse("C6649427-B81A-4DD3-8793-D1A7D3F1424D"), HolidayId = 3, Comment = "Highly recommended!" },
+                new Review { Id = 4, UserId = Guid.Parse("A04C6D0D-9E0F-4FA2-A7F6-4D61CF154C37"), HolidayId = 4, Comment = "Fantastic getaway!" },
+                new Review { Id = 5, UserId = Guid.Parse("9F17E229-A27E-4D05-BEEE-A2882CD42E18"), HolidayId = 5, Comment = "Will definitely come back!" }
             );
-
-
-            //// Seed Reviews
-            //builder.Entity<Review>().HasData(
-            //    new Review { Id = 1, UserId = /* Use one of the ApplicationUser Ids */, HolidayId = /* Use one of the Holiday Ids */, Comment = "Great experience!" },
-            //    new Review { Id = 2, UserId = /* Use one of the ApplicationUser Ids */, HolidayId = /* Use one of the Holiday Ids */, Comment = "Amazing views!" },
-            //    new Review { Id = 3, UserId = /* Use one of the ApplicationUser Ids */, HolidayId = /* Use one of the Holiday Ids */, Comment = "Highly recommended!" },
-            //    new Review { Id = 4, UserId = /* Use one of the ApplicationUser Ids */, HolidayId = /* Use one of the Holiday Ids */, Comment = "Fantastic getaway!" },
-            //    new Review { Id = 5, UserId = /* Use one of the ApplicationUser Ids */, HolidayId = /* Use one of the Holiday Ids */, Comment = "Will definitely come back!" }
-            //);
 
 
 
