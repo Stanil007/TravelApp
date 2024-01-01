@@ -48,6 +48,22 @@ namespace TravelApp.Core.Services
             .ToListAsync();
         }
 
+        public async Task<IEnumerable<BookingDto>> GetHolidaysByUserAsync(Guid userID)
+        {
+            var bookings = await context.Bookings
+                                        .Where(b => b.UserId == userID)
+                                        .Select(b => new BookingDto
+                                        {
+                                            Id = b.Id,
+                                            UserId = b.UserId,
+                                            HolidayId = b.HolidayId,
+                                        })
+                                        .ToListAsync();
+
+
+            return bookings;
+        }
+
         public async Task<BookingDto> GetByIdAsync(int id)
         {
             var booking = await context.Bookings.FindAsync(id);

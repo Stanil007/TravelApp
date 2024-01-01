@@ -9,5 +9,6 @@ namespace TravelApp.Core.Contracts
         Task CreateAsync(BookingDto booking);
         Task UpdateAsync(BookingDto booking);
         Task DeleteAsync(int id);
+        Task<IEnumerable<BookingDto>> GetHolidaysByUserAsync(Guid userID);
     }
 }
