@@ -15,7 +15,7 @@ namespace TravelApp.Core.Services
             context = _context;
         }
 
-        public async Task CreateAsync(HolidayDto holidayDto)
+        public async Task CreateAsync(HolidayDto holidayDto, List<int> selectedAmenities)
         {
             var holiday = new Holiday
             {
@@ -23,18 +23,22 @@ namespace TravelApp.Core.Services
                 Destination = holidayDto.Destination,
                 Description = holidayDto.Description,
                 ImageUrl = holidayDto.ImageUrl,
+                Amenities = new List<Amenity>()
             };
 
-            await context.Holidays.AddAsync(holiday);
+            if (selectedAmenities != null && selectedAmenities.Any())
+            {
+                foreach (var amenityId in selectedAmenities)
+                {
+                    var amenity = await context.Amenities.FindAsync(amenityId);
+                    if (amenity != null)
+                    {
+                        holiday.Amenities.Add(amenity);
+                    }
+                }
+            }
 
-            var selectedAmenityIds = holidayDto.AmenitiesIds;
-
-            var amenitiesToAdd = await context.Amenities
-                .Where(a => selectedAmenityIds.Contains(a.Id))
-                .ToListAsync();
-
-            holiday.Amenities = amenitiesToAdd;
-
+            context.Holidays.Add(holiday);
             await context.SaveChangesAsync();
         }
 
