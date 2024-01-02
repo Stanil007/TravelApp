@@ -58,7 +58,7 @@ namespace TravelApp.Core.Services
                 CategoryId = h.CategoryId,
                 Destination = h.Destination,
                 Description = h.Description,
-                ImageUrl = h.ImageUrl
+                ImageUrl = h.ImageUrl,
             })
             .ToListAsync();
         }
@@ -73,7 +73,8 @@ namespace TravelApp.Core.Services
                 CategoryId = holiday.CategoryId,
                 Destination = holiday.Destination,
                 Description = holiday.Description,
-                ImageUrl = holiday.ImageUrl
+                ImageUrl = holiday.ImageUrl,
+                AmenitiesIds = holiday.Amenities.Select(a => a.Id).ToList()
             };
         }
 
@@ -102,6 +103,7 @@ namespace TravelApp.Core.Services
             holidayToUpdate.Destination = holiday.Destination;
             holidayToUpdate.Description = holiday.Description;
             holidayToUpdate.ImageUrl = holiday.ImageUrl;
+            holidayToUpdate.Amenities = new List<Amenity>();
 
             context.Holidays.Update(holidayToUpdate);
             await context.SaveChangesAsync();
