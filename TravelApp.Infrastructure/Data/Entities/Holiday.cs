@@ -15,6 +15,7 @@ namespace TravelApp.Infrastructure.Data.Entities
         public Category Category { get; set; } = default!;
 
         [Required]
+        [MaxLength(50)]
         public string Destination { get; set; }
 
         public string? Description { get; set; }
