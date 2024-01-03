@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using TravelApp.Core.Contracts;
+using TravelApp.Core.Services;
 using TravelApp.Infrastructure.Data;
 using TravelApp.Infrastructure.Data.Entities;
 
@@ -19,6 +21,13 @@ namespace TravelApp.Web
 
             builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddEntityFrameworkStores<TravelAppDbContext>();
+
+            builder.Services.AddScoped<IAmenityService, AmenityService>();
+            builder.Services.AddScoped<IBookingService, BookingService>();
+            builder.Services.AddScoped<ICategoryService, CategoryService>();
+            builder.Services.AddScoped<IHolidayService, HolidayService>();
+            builder.Services.AddScoped<IReviewService, ReviewService>();
+
             builder.Services.AddControllersWithViews();
 
             var app = builder.Build();
