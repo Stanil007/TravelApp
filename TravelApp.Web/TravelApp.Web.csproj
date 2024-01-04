@@ -20,4 +20,14 @@
     <ProjectReference Include="..\TravelApp.Infrastructure\TravelApp.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Areas\Admin\Views\Home\" />
+    <Folder Include="Areas\Admin\Views\Amenity\" />
+    <Folder Include="Areas\Admin\Views\Category\" />
+    <Folder Include="Areas\Admin\Views\Holiday\" />
+    <Folder Include="Areas\Admin\Views\Booking\" />
+    <Folder Include="Areas\Admin\Views\User\" />
+    <Folder Include="Areas\Admin\Views\Review\" />
+  </ItemGroup>
+
 </Project>
