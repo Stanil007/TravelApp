@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TravelApp.Core.Contracts;
 using TravelApp.Core.Services;
@@ -15,11 +16,22 @@ namespace TravelApp.Web
 
             // Add services to the container.
             var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+            
             builder.Services.AddDbContext<TravelAppDbContext>(options =>
                 options.UseSqlServer(connectionString));
+
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-            builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
+            builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
+            {
+                options.SignIn.RequireConfirmedAccount = false;
+                options.Password.RequireDigit = false;
+                options.Password.RequiredLength = 3;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequireLowercase = false;
+            })
+                .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<TravelAppDbContext>();
 
             builder.Services.AddScoped<IAmenityService, AmenityService>();
@@ -28,7 +40,10 @@ namespace TravelApp.Web
             builder.Services.AddScoped<IHolidayService, HolidayService>();
             builder.Services.AddScoped<IReviewService, ReviewService>();
 
-            builder.Services.AddControllersWithViews();
+            builder.Services.AddControllersWithViews(options => {
+                options.Filters.Add<AutoValidateAntiforgeryTokenAttribute>();
+
+            });
 
             var app = builder.Build();
 
@@ -40,7 +55,6 @@ namespace TravelApp.Web
             else
             {
                 app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
 
@@ -52,14 +66,20 @@ namespace TravelApp.Web
             app.UseAuthentication();
             app.UseAuthorization();
 
-            app.MapControllerRoute(
-                name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
-            app.MapRazorPages();
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
+
+                endpoints.MapControllerRoute(
+                    name: "areas",
+                    pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+
+                endpoints.MapRazorPages();
+            });     
 
             app.Run();
         }
     }
 }
-
-// Controllers and Views next
