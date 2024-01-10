@@ -20,7 +20,7 @@ namespace TravelApp.Core.DTOModels
         [MaxLength(2048)]
         public string ImageUrl { get; set; }
 
-        public IEnumerable<int> AmenitiesIds { get; set; }
+        public IEnumerable<int> selectedAmenities { get; set; }
 
         public IEnumerable<ReviewDto> Reviews { get; set; }
 

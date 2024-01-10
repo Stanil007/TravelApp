@@ -74,7 +74,7 @@ namespace TravelApp.Core.Services
                 Destination = holiday.Destination,
                 Description = holiday.Description,
                 ImageUrl = holiday.ImageUrl,
-                AmenitiesIds = holiday.Amenities.Select(a => a.Id).ToList()
+                selectedAmenities = holiday.Amenities.Select(a => a.Id).ToList()
             };
         }
 
@@ -95,7 +95,7 @@ namespace TravelApp.Core.Services
             return holidays;
         }
 
-        public async Task UpdateAsync(HolidayDto holiday)
+        public async Task UpdateAsync(HolidayDto holiday, List<int> selectedAmenitiies)
         {
             var holidayToUpdate = await context.Holidays.FindAsync(holiday.Id);
 

@@ -7,7 +7,7 @@ namespace TravelApp.Core.Contracts
         Task<IEnumerable<HolidayDto>> GetAllAsync();
         Task<HolidayDto> GetByIdAsync(int id);
         Task CreateAsync(HolidayDto holiday, List<int> selectedAmenities);
-        Task UpdateAsync(HolidayDto holiday);
+        Task UpdateAsync(HolidayDto holiday, List<int> selectedAmenities);
         Task DeleteAsync(int id);
         Task<IEnumerable<HolidayDto>> GetHolidaysByCategoryAsync(int categoryId);
     }
