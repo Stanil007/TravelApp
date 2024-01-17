@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using TravelApp.Core.Contracts;
 using TravelApp.Core.DTOModels;
 
@@ -19,9 +20,10 @@ namespace TravelApp.Web.Controllers
             amenityService = _amenityService;
         }
 
-        public IActionResult Index()
+        [AllowAnonymous]
+        public async Task<IActionResult> Index()
         {
-            var holidays = holidayService.GetAllAsync();
+            var holidays = await holidayService.GetAllAsync();
             return View(holidays);
         }
 
