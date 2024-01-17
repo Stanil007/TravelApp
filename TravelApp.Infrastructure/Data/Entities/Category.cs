@@ -10,6 +10,6 @@ namespace TravelApp.Infrastructure.Data.Entities
         [MaxLength(50)]
         public string Name { get; set; }
 
-        public ICollection<Holiday> Holidays { get; set; } = new List<Holiday>();
+        public List<Holiday> Holidays { get; set; } = new List<Holiday>();
     }
 }

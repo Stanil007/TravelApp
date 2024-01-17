@@ -24,10 +24,10 @@ namespace TravelApp.Infrastructure.Data.Entities
         public string ImageUrl { get; set; }
 
 
-        public ICollection<Amenity> Amenities { get; set; } = new List<Amenity>();
+        public List<Amenity> Amenities { get; set; } = new List<Amenity>();
 
-        public ICollection<Booking> Bookings { get; set; } = new List<Booking>();
+        public List<Booking> Bookings { get; set; } = new List<Booking>();
 
-        public ICollection<Review> Reviews { get; set; } = new List<Review>();
+        public List<Review> Reviews { get; set; } = new List<Review>();
     }
 }

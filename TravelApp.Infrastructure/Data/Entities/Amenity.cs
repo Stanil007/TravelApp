@@ -12,6 +12,6 @@ namespace TravelApp.Infrastructure.Data.Entities
         public string Name { get; set; }
 
 
-        public ICollection<Holiday> Holidays { get; set; } = new List<Holiday>();
+        public List<Holiday> Holidays { get; set; } = new List<Holiday>();
     }
 }
