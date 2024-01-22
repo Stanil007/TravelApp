@@ -1,10 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TravelApp.Core.Contracts;
 using TravelApp.Core.DTOModels;
+using TravelApp.Web.Areas.Admin.Controllers;
 
 namespace TravelApp.Web.Controllers
 {
-    public class CategoryController : Controller
+    public class CategoryController : BaseAdminController
     {
 
         private readonly ICategoryService categoryService;

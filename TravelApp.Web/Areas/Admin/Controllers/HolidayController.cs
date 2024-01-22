@@ -5,7 +5,7 @@ using TravelApp.Core.DTOModels;
 
 namespace TravelApp.Web.Areas.Admin.Controllers
 {
-    public class HolidayController : Controller
+    public class HolidayController : BaseAdminController
     {
         private readonly IHolidayService holidayService;
         private readonly ICategoryService categoryService;
