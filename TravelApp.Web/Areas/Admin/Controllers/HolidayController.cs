@@ -20,7 +20,6 @@ namespace TravelApp.Web.Areas.Admin.Controllers
             amenityService = _amenityService;
         }
 
-        [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
             var holidays = await holidayService.GetAllAsync();
