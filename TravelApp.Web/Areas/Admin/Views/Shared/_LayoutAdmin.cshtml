@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <div>
+        <nav>
+            <ul>
+                <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                <li><a asp-controller="Category" asp-action="Index">Manage Categories</a></li>
+                <li><a asp-controller="Amenity" asp-action="Index">Manage Amenities</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>
