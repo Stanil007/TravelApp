@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using TravelApp.Core.Contracts;
 using TravelApp.Core.Services;
 using TravelApp.Infrastructure.Data;
@@ -25,7 +24,7 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole<Guid>>(options =>
     options.Password.RequireUppercase = false;
     options.Password.RequireLowercase = false;
 })
-    .AddEntityFrameworkStores<TravelAppDbContext>()
+.AddEntityFrameworkStores<TravelAppDbContext>()
 .AddUserManager<UserManager<ApplicationUser>>()
 .AddDefaultTokenProviders();
 
@@ -69,9 +68,10 @@ app.UseEndpoints(endpoints =>
         name: "default",
         pattern: "{controller=Home}/{action=Index}/{id?}");
 
-    endpoints.MapControllerRoute(
-        name: "areas",
-        pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+    endpoints.MapAreaControllerRoute(
+        name: "Admin",
+        areaName: "Admin",
+        pattern: "Admin/{controller=Home}/{action=Index}/{id?}");
 
     endpoints.MapRazorPages();
 });
