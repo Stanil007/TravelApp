@@ -20,9 +20,9 @@ namespace TravelApp.Web.Controllers
             return View(holidays);
         }
 
-        public IActionResult Details(int id)
+        public async Task<IActionResult> Details(int id)
         {
-            var holiday = holidayService.GetByIdAsync(id);
+            var holiday = await holidayService.GetByIdAsync(id);
             return View(holiday);
         }
     }

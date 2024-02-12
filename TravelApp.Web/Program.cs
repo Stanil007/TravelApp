@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TravelApp.Core.Contracts;
@@ -77,3 +78,7 @@ app.UseEndpoints(endpoints =>
 });
 
 app.Run();
+
+
+
+//Fix the connection string in appsettings.json
