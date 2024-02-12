@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using TravelApp.Core.Contracts;
 using TravelApp.Core.DTOModels;
 using TravelApp.Infrastructure.Data;
@@ -65,12 +66,15 @@ namespace TravelApp.Core.Services
 
         public async Task<HolidayDto> GetByIdAsync(int id)
         {
-            var holiday = await context.Holidays.FindAsync(id);
+            var holiday = await context.Holidays
+                                        .Include(h => h.Category)
+                                        .FirstOrDefaultAsync(h => h.Id ==id);
 
             return new HolidayDto
             {
                 Id = holiday.Id,
                 CategoryId = holiday.CategoryId,
+                CategoryName = holiday.Category.Name,
                 Destination = holiday.Destination,
                 Description = holiday.Description,
                 ImageUrl = holiday.ImageUrl,
@@ -98,6 +102,7 @@ namespace TravelApp.Core.Services
         public async Task UpdateAsync(HolidayDto holiday, List<int> selectedAmenitiies)
         {
             var holidayToUpdate = await context.Holidays.FindAsync(holiday.Id);
+
 
             holidayToUpdate.CategoryId = holiday.CategoryId;
             holidayToUpdate.Destination = holiday.Destination;

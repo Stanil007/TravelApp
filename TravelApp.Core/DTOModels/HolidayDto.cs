@@ -9,6 +9,8 @@ namespace TravelApp.Core.DTOModels
         [Required]
         public int CategoryId { get; set; }
 
+        public string CategoryName { get; set; }
+
         [Required]
         [MinLength(3)]
         [MaxLength(50)]
