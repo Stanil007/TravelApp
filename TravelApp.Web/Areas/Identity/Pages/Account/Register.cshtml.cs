@@ -75,7 +75,8 @@ namespace TravelApp.Web.Areas.Identity.Pages.Account
                     _logger.LogInformation("User created a new account with password.");
 
                     await _signInManager.SignInAsync(user, isPersistent: false);
-                    return LocalRedirect(returnUrl);
+                   //return LocalRedirect(returnUrl);
+                   return RedirectToPage("/Index");
                 }
 
                 foreach (var error in result.Errors)
@@ -89,3 +90,5 @@ namespace TravelApp.Web.Areas.Identity.Pages.Account
         }
     }
 }
+
+//fix logout

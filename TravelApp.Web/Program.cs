@@ -16,7 +16,8 @@ builder.Services.AddDbContext<TravelAppDbContext>(options =>
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-builder.Services.AddIdentity<ApplicationUser, IdentityRole<Guid>>(options =>
+builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
+//builder.Services.AddIdentity<ApplicationUser, IdentityRole<Guid>>(options =>
 {
     options.SignIn.RequireConfirmedAccount = false;
     options.Password.RequireDigit = false;
@@ -27,7 +28,7 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole<Guid>>(options =>
 })
 .AddEntityFrameworkStores<TravelAppDbContext>()
 .AddUserManager<UserManager<ApplicationUser>>()
-.AddDefaultTokenProviders();
+.AddDefaultTokenProviders(); 
 
 
 builder.Services.AddScoped<IAmenityService, AmenityService>();
@@ -36,12 +37,12 @@ builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<IHolidayService, HolidayService>();
 builder.Services.AddScoped<IReviewService, ReviewService>();
 
-builder.Services.AddControllersWithViews(options =>
-{
-    options.Filters.Add<AutoValidateAntiforgeryTokenAttribute>();
-});
+//builder.Services.AddControllersWithViews(options =>
+//{
+//    options.Filters.Add<AutoValidateAntiforgeryTokenAttribute>();
+//});
 
-builder.Services.AddRazorPages();
+//builder.Services.AddRazorPages();
 
 var app = builder.Build();
 
@@ -65,14 +66,14 @@ app.UseAuthorization();
 
 app.UseEndpoints(endpoints =>
 {
+    endpoints.MapAreaControllerRoute(
+       name: "Admin",
+       areaName: "Admin",
+       pattern: "Admin/{controller=Home}/{action=Index}/{id?}");
+
     endpoints.MapControllerRoute(
         name: "default",
         pattern: "{controller=Home}/{action=Index}/{id?}");
-
-    endpoints.MapAreaControllerRoute(
-        name: "Admin",
-        areaName: "Admin",
-        pattern: "Admin/{controller=Home}/{action=Index}/{id?}");
 
     endpoints.MapRazorPages();
 });
@@ -80,5 +81,6 @@ app.UseEndpoints(endpoints =>
 app.Run();
 
 
-
-//Fix the connection string in appsettings.json
+//fix register
+//fix logout
+//fix links in admin area
